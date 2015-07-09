@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Docker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/animate-custom.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <script src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-60x60.png">
+    <link rel="icon" type="image/png" href="assets/img/apple-touch-icon-60x60.png" sizes="60x60">
+
+</head>
+
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+
+<!-- ==== HEADERWRAP ==== -->
+<div id="headerwrap" name="home">
+    <header class="clearfix">
+        <img src="assets/img/logo/docker.png">
+
+        <div class="container">
+            <img src="assets/img/logo/mongodb.png" width="100px">
+            <img src="assets/img/logo/nginx.png" width="80px">
+            <img src="assets/img/logo/redis.png" width="90px">
+
+        </div>
+
+
+        <h1>Build, Ship, Run</h1>
+
+        <p>This is a demo of doing a blue-green deploy of a simple web application (Python Cherrypy) using Docker of
+            course.<br>
+            Orchestration of this deploy is handled using a highly advanced technology known as the Bourne again shell.
+        </p>
+
+
+        <a href="https://github.com/fartashh/docker_aws_easy_deploy" class="smoothScroll btn btn-lg">Find out More</a>
+
+    </header>
+</div>
+<!-- /headerwrap -->
+
+<!-- ==== SERVICES ==== -->
+<div id="services" name="services" ng-app="myApp" ng-controller="myCtrl" ng-init="init()">
+    <div class="container">
+        <div class="row">
+            <h2 class="centered">Check Servers</h2>
+            <hr>
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="large">Check Nginx, Mongo, Redis Servers</p>
+            </div>
+            <div class="col-lg-4 callout"><i class="fa fa-globe fa-3x"></i>
+
+                <h3>Nginx Server</h3>
+
+                <div>
+                    <span><i class="fa fa-check-circle-o" style="color: #40d47e"></i> <b>Connection</b></span>
+                </div>
+            </div>
+            <div class="col-lg-4 callout"><i class="fa fa-database fa-3x"></i>
+
+                <h3>Mongo Server</h3>
+
+                <div ng-show="server_status.mongodb_is_connected">
+                    <span><i class="fa fa-check-circle-o" style="color: #40d47e"></i> <b>Connection</b></span>
+                </div>
+                <div ng-show="server_status.mongodb_is_connected">
+                    <span class="img-circle" ng-bind="server_status.mongodb_read"></span>
+                </div>
+                <div ng-show="!server_status.mongodb_is_connected">
+                    <span><i class="fa fa-times-circle-o" style="color: #e74c3c"></i> <b>Connection</b></span>
+                </div>
+
+
+            </div>
+            <div class="col-lg-4 callout"><i class="fa fa-key fa-3x"></i>
+
+                <h3>Redis Server</h3>
+
+                 <div ng-show="server_status.redis_is_connected">
+                    <span><i class="fa fa-check-circle-o" style="color: #40d47e"></i> <b>Connection</b></span>
+                </div>
+
+                <div ng-show="server_status.mongodb_is_connected">
+                    <span class="img-circle" ng-bind="server_status.redis_read"></span>
+                </div>
+
+                <div ng-show="!server_status.redis_is_connected">
+                    <span><i class="fa fa-times-circle-o" style="color: #e74c3c"></i> <b>Connection</b></span>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>
+<!-- container -->
+
+<!-- ==== ABOUT ==== -->
+<div id="about" name="about">
+    <div class="container">
+        <div class="row white">
+            <h2 class="centered">ABOUT Project</h2>
+            <hr>
+            <div class="col-md-6"><img class="img-responsive" src="assets/img/about/docker.png" align=""></div>
+            <div class="col-md-6">
+                <h3>What is Docker AWS easy Deploy</h3>
+
+                <p>This is a demo of doing a blue-green deploy of a simple web application using Docker of course.
+                    Orchestration of this deploy is handled using a highly advanced technology known as the Bourne again shell.
+                <h3>Refrence?</h3>
+
+                <p>This project based on <a href="https://github.com/nathanleclaire/awsapp">AWS APP</a> project </p>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>
+<!-- container -->
+
+
+<!-- ==== TEAM MEMBERS ==== -->
+<!--<div id="team" name="team">-->
+    <!--<div class="container">-->
+        <!--<div class="row centered">-->
+            <!--<h2 class="centered">MEET OUR TEAM</h2>-->
+            <!--<hr>-->
+            <!--<div class="col-lg-3 centered"><img class="img img-circle" src="assets/img/team/team01.jpg" height="120px"-->
+                                                <!--width="120px" alt="">-->
+                <!--<h4><strong>Jessica</strong></h4>-->
+
+                <!--<p>Albucius consectetuer eu nam. Saepe legendos vulputate eu quo, id mea comprehensam signifer.</p>-->
+                <!--<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a-->
+                        <!--href="#"><i class="fa fa-linkedin"></i></a></div>-->
+            <!--<div class="col-lg-3 centered"><img class="img img-circle" src="assets/img/team/team02.jpg" height="120px"-->
+                                                <!--width="120px" alt="">-->
+                <!--<h4><b>Mike</b></h4>-->
+
+                <!--<p>Albucius consectetuer eu nam. Saepe legendos vulputate eu quo, id mea comprehensam signifer.</p>-->
+                <!--<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a-->
+                        <!--href="#"><i class="fa fa-linkedin"></i></a></div>-->
+            <!--<div class="col-lg-3 centered"><img class="img img-circle" src="assets/img/team/team03.jpg" height="120px"-->
+                                                <!--width="120px" alt="">-->
+                <!--<h4><b>Michele</b></h4>-->
+
+                <!--<p>Albucius consectetuer eu nam. Saepe legendos vulputate eu quo, id mea comprehensam signifer.</p>-->
+                <!--<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a-->
+                        <!--href="#"><i class="fa fa-linkedin"></i></a></div>-->
+            <!--<div class="col-lg-3 centered"><img class="img img-circle" src="assets/img/team/team04.jpg" height="120px"-->
+                                                <!--width="120px" alt="">-->
+                <!--<h4><b>Larry</b></h4>-->
+
+                <!--<p>Albucius consectetuer eu nam. Saepe legendos vulputate eu quo, id mea comprehensam signifer.</p>-->
+                <!--<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a-->
+                        <!--href="#"><i class="fa fa-linkedin"></i></a></div>-->
+            <!--<div class="col-lg-8 col-lg-offset-2 centered">-->
+                <!--<p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam-->
+                    <!--veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; row &ndash;&gt;-->
+<!--</div>-->
+<!-- container -->
+
+
+<div id="footerwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8"><span class="copyright">Copyright &copy; 2015 Your Website Name. Design by <a
+                    href="http://www.templategarden.com" rel="nofollow">TemplateGarden</a></span></div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+
+        $scope.server_status = {
+            mongodb_is_connected: false,
+            mongodb_insert: false,
+            mongodb_read: 0,
+            redis_is_connected: false,
+            redis_insert: false,
+            redis_read: 0
+        }
+
+        $scope.init = function () {
+
+            $scope.connect_to_mongo()
+            $scope.insert_into_mongo()
+            $scope.read_mongo()
+
+            $scope.connect_to_redis()
+            $scope.insert_into_redis()
+            $scope.read_redis()
+        }
+
+
+        $scope.connect_to_mongo = function () {
+            $http.post('/connect_to_mongodb').success(function (res) {
+                        console.log("connect_to_mongo ::" + res)
+                        $scope.server_status.mongodb_is_connected = res
+                    }
+            )
+        }
+
+        $scope.insert_into_mongo = function () {
+            $http.post('/insert_into_mongo').success(function (res) {
+                        console.log("insert_into_mongo ::" + res)
+                        $scope.server_status.mongodb_insert = res
+                    }
+            )
+        }
+
+        $scope.read_mongo = function () {
+            $http.post('/read_redis').success(function (res) {
+                        console.log("read_mongo :: "+ res)
+                        $scope.server_status.mongodb_read = res
+                    }
+            )
+        }
+
+        $scope.connect_to_redis = function () {
+            $http.post('/connect_to_redis').success(function (res) {
+                        console.log("connect_to_redis :: "+res)
+                        $scope.server_status.redis_is_connected = res
+                    }
+            )
+        }
+
+        $scope.insert_into_redis = function () {
+            $http.post('/insert_into_redis').success(function (res) {
+                        console.log("insert_into_redis :: "+res)
+                        $scope.server_status.redis_insert = res
+                    }
+            )
+        }
+
+        $scope.read_redis = function () {
+            $http.post('/read_redis').success(function (res) {
+                        console.log("read_redis :: "+res)
+                        $scope.server_status.redis_read = res
+                    }
+            )
+        }
+
+
+    });
+</script>
+</body>
+</html>
