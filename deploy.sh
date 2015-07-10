@@ -119,10 +119,18 @@ case $1 in
 
         run_app_containers_from_image ${TAGGED_IMAGE}
         print_deployed_msg
-        echo "Access at " $(boot2docker ip ${DOCKER_HOST_NAME})":8080"
+        echo "Accessible at " $(boot2docker ip ${DOCKER_HOST_NAME})":8080"
         ;;
     reload-nginx)
-        echo "under construction"
+        echo "Reloading Nginx Container"
+        docker stop ${NGINGX_CONTAINER}
+        docker rm ${NGINGX_CONTAINER}
+        docker run -d  \
+            --net host \
+            --name ${NGINGX_CONTAINER} \
+            ${APP_IMAGE}/nginx
+
+        echo "Accessible at " $(boot2docker ip ${DOCKER_HOST_NAME})":8080"
         ;;
     rollback)
         echo "under construction"
