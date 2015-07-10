@@ -82,7 +82,7 @@ class Root(object):
 
 
 def main(port):
-    root = Root()
+        root = Root()
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
         'server.socket_port': port,
