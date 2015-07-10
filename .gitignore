@@ -2,13 +2,16 @@
 __pycache__/
 *.py[cod]
 
+
+.DS_Store
+.idea
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
 env/
-app_server/app_src/venv/
+app_src/venv/
 build/
 develop-eggs/
 dist/

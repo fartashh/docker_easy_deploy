@@ -41,7 +41,7 @@ RUN pip install --no-cache-dir virtualenv
 
 RUN mkdir -p /app_src
 
-ADD app_src /app_src/
+ADD ../app_src /app_src/
 
 WORKDIR /app_src
 

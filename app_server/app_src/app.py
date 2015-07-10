@@ -18,6 +18,7 @@ class Root(object):
     def index(self):
         return open(root_path + "/index.html").read()
 
+
     @cherrypy.expose()
     @cherrypy.tools.json_out(on=True)
     def connect_to_mongodb(self):

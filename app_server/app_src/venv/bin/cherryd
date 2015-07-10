@@ -1,0 +1,6 @@
+#!/Users/Mindvalley/MV_dev/docker_aws_easy_deploy/app_server/app_src/venv/bin/python
+
+import cherrypy.daemon
+
+if __name__ == '__main__':
+    cherrypy.daemon.run()
