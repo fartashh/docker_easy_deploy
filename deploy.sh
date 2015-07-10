@@ -133,7 +133,8 @@ case $1 in
         echo "Accessible at " $(boot2docker ip ${DOCKER_HOST_NAME})":8080"
         ;;
     rollback)
-        echo "under construction"
+        echo "Rollback app server to " ${REMOTE_IMAGE}:$2
+        run_app_containers_from_image ${REMOTE_IMAGE}:$2
         ;;
     *)
         echo "Usage: deploy.sh [up|down|deploy|reload-haproxy|rollback]"
