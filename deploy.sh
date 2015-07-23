@@ -137,6 +137,6 @@ case $1 in
         run_app_containers_from_image ${REMOTE_IMAGE}:$2
         ;;
     *)
-        echo "Usage: deploy.sh [up|down|deploy|reload-haproxy|rollback]"
+        echo "Usage: deploy.sh [build|up|deploy|reload-nginx|rollback]"
         exit 1
 esac

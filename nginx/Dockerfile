@@ -1,26 +1,44 @@
-FROM debian:jessie
+#
+# Nginx Dockerfile
+#
+# https://github.com/dockerfile/nginx
+#
 
-MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
+# Pull base image.
+FROM ubuntu:14.04
 
-RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
-RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
+# Install Nginx.
+RUN \
+  apt-get install -y --no-install-recommends software-properties-common && \
+  add-apt-repository -y ppa:nginx/stable && \
+  apt-get update && \
+  apt-get install -y nginx && \
+  rm -rf /var/lib/apt/lists/* && \
+  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+  chown -R www-data:www-data /var/lib/nginx
 
-ENV NGINX_VERSION 1.9.2-1~jessie
+# Define mountable directories.
+VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
-RUN apt-get update && \
-    apt-get install -y ca-certificates nginx=${NGINX_VERSION} && \
-    rm -rf /var/lib/apt/lists/*
+# Define working directory.
+WORKDIR /etc/nginx
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-VOLUME ["/var/cache/nginx"]
 
 # Update config
 ADD nginx.conf /etc/nginx/nginx.conf
 
-
-EXPOSE 80 443
-
+# Define default command.
 CMD ["nginx", "-g", "daemon off;"]
+
+# Expose ports.
+EXPOSE 80
+EXPOSE 443
+
+
+
+
+
