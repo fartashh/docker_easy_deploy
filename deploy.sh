@@ -76,15 +76,26 @@ build_nginx(){
     cd ..
 }
 
+#build_ekl(){
+#    cd ekl
+#    docker build -t ${APP_IMAGE}/ekl .
+#    cd ..
+#}
+
 
 
 case $1 in
     up)
         # Run the nginx, mongo, redis container
         echo  "stop and remove all container"
+        RUNING_PROCESS=$(docker ps -a -q)
+        if [[ -z "$RUNING_PROCESS" ]];then
+        echo "There is no container"
+        else
         docker stop $(docker ps -a -q)
         docker rm $(docker ps -a -q)
         echo "All container removed"
+        fi
 
         docker run -d  \
             --net host \
@@ -100,6 +111,11 @@ case $1 in
             --name mongodb \
             ${APP_IMAGE}/mongodb
 
+#        docker run -d \
+#            -p 5601:80
+#            --name ekl \
+#            ${APP_IMAGE}/ekl
+
         ;;
     down)
         echo "under construction"
@@ -109,6 +125,7 @@ case $1 in
         build_nginx
         build_mongodb
         build_redis
+        build_ekl
     ;;
     deploy)
         # deploy project
