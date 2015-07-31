@@ -45,7 +45,7 @@ run_app_containers_from_image () {
             $1
 
         # give app a second to come back up
-        sleep 1
+        sleep 2
     done
 }
 
