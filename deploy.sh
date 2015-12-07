@@ -122,10 +122,10 @@ case $1 in
         ;;
     build)
         # Run it for forst time to build the docker images from Dockerfiles
-        build_nginx
+#        build_nginx
         build_mongodb
         build_redis
-        build_ekl
+        #build_ekl
     ;;
     deploy)
         # deploy project

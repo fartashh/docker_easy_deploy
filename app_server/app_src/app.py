@@ -103,6 +103,9 @@ def main(port):
 
     cherrypy.quickstart(root, "/", cherrypy_conf)
 
+def feature():
+    return "yohoooo"
+
 
 if __name__ == '__main__':
     main(5000)
