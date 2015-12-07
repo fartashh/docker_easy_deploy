@@ -11,7 +11,6 @@ This is a demo of doing a blue-green deploy of a simple web application using Re
 - Working copy of Docker.
 
 # Notice
-- for mac or windows use ./deploy.sh (boot2docker command used)
 - Run chmod +x for mongodb/docker-entrypoint.sh and redis/docker-entrypoint.sh
 - Inorder to use Docker hub you need to uncomment line 57 and 118 in deploy.sh
 
